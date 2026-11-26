@@ -30,6 +30,17 @@ print(arr4[0:2 , 1:4] , '\n\n') # in ra 2,3,4 . 7,8,9
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 #numpy data types
 arr4 = np.array([[1,2,3,4,5],
                  [6,7,8,9,10]])
@@ -61,4 +72,52 @@ print(newarr.dtype)
 
 
 
+
+
 # Numpy Array Copy vs View
+print('\n \n \n')
+arr10 = np.array([1,2,3,4,5,6])
+a = arr10.copy()
+arr10[0] = 123123
+print(arr10)
+print(a)
+
+#use view
+arr10 = np.array([1,2,3,4,5,6])
+x = arr10.view()
+arr10[0] = 42
+print('\n' ,arr10)
+print(x)
+
+arr11 = np.array([1,2,3,4,5,6])
+x = arr11.copy()
+y = arr11.view()
+print('\n Hiii\n', x.base)
+print(y.base)
+
+
+
+
+
+
+
+
+
+#Numpy Array Shape
+# cách nhớ : shape có bao nhiêu số thì mảng có bấy nhiêu chiều .
+# (2,4) -> 2 chiều 
+# (1,2,3,4,5) -> 5 chiều 
+print('\n\n\n')
+arr12 = np.array([[1,2,3,4], [5,6,7,8]]) # tạo ra mảng , giống 1 bảng gồm 2 hàng 4 cột
+# dưới đây cho biết kích thước của mảng , trả về một bộ số tuple
+print(arr12.shape) #in ra (2,4) , đọc là 2 hàng 4 cột 
+# ban đầu [1,2,3,4] chỉ là mảng 1 chiều , ndmin = 5 nghĩa là ép mảng phải có ít nhất 5 chiều .
+arr13 = np.array([1,2,3,4], ndmin = 5)
+print(arr13)
+# đọc từ trái sang phải , 4 chiều đầu mỗi chiều chỉ có 1 phần tử ( là các lớp ngoặc bọc thêm ) , chiều cuối cùng có 4 phần tử .
+print('Shape of array : ', arr13.shape)
+
+a = np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(a.shape) # in ra so hang va so cot
+print(a.ndim) # in ra so chieu ( cung bang so luong so trong shape )
+print(a.size) # in ra tong so phan tu
